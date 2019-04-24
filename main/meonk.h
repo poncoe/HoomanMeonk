@@ -56,4 +56,20 @@ struct Kuchink {
     addressKuchink prev;
 };
 
+// Hooman
+
+addressHooman AlokasiHooman(std::string data);
+addressHooman TampilHooman(listHooman L, std::string nama);
+void CreateListHooman(listHooman &L);
+void DealokasiHooman(addressHooman C);
+void InserFirstHooman(listHooman &L, addressHooman C);
+
+// Kuchink
+
+addressKuchink AlokasiKuchink(std::string data);
+addressKuchink TampilKuchink(listKuchink L, std::string nama);
+void CreateListKuchink(listKuchink &L);
+void DealokasiKuchink(addressKuchink C);
+void InserFirstKuchink(listKuchink &L, addressKuchink C);
+
 #endif //HOOMANMEONK_MEONK_H
