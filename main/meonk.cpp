@@ -50,14 +50,14 @@ addressHooman TampilHooman(listHooman L, std::string nama) {
 
 // Membuat Address Tambah Data Hooman (Insert First)
 
-void InsertFirstHooman(listHooman &L, addressHooman C) {
+void InsertFirstHooman(listHooman &L, addressHooman H) {
     if (first (L) == NULL) {
-        first (L) = C;
-        last (L) = C;
+        first (L) = H;
+        last (L) = H;
     } else {
-        next (C) = first (L);
-        prev (first (L)) = C;
-        first (L) = C;
+        next (H) = first (L);
+        prev (first (L)) = H;
+        first (L) = H;
     }
 }
 
@@ -69,10 +69,10 @@ void InsertFirstHooman(listHooman &L, addressHooman C) {
 addressKuchink AllocateKuchink(std::string data) {
 
     addressKuchink P;
-    P = new Kucink;
+    P = new Kuchink;
 
     listHooman Kuchink;
-    CreateListHooman(info (P).Kucink);
+    CreateListHooman(info (P).Kuchink);
 
     info (P).data = data;
     info (P).numberofKuchink = 0;
@@ -112,13 +112,13 @@ addressKuchink TampilKuchink(listKuchink L, std::string nama) {
 
 // Membuat Address Input Data Kucink (Insert First)
 
-void InsertFirstKuchink(listKuchink &L, addressKuchink F) {
+void InsertFirstKuchink(listKuchink &L, addressKuchink K) {
     if (first (L) == NULL) {
-        first (L) = F;
-        last (L) = F;
+        first (L) = K;
+        last (L) = K;
     } else {
-        next (F) = first (L);
-        prev (first (L)) = F;
-        first (L) = F;
+        next (K) = first (L);
+        prev (first (L)) = K;
+        first (L) = K;
     }
 }
