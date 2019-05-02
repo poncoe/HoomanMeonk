@@ -63,6 +63,8 @@ addressHooman TampilHooman(listHooman L, std::string nama);
 void CreateListHooman(listHooman &L);
 void DealokasiHooman(addressHooman P);
 void InserFirstHooman(listHooman &L, addressHooman H);
+void InsertLastHooman(listHooman &L, addressHooman C);
+void InsertAfterHooman(listHooman &L, addressHooman Prec, addressHooman C);
 
 // Kuchink
 
@@ -71,5 +73,7 @@ addressKuchink TampilKuchink(listKuchink L, std::string nama);
 void CreateListKuchink(listKuchink &L);
 void DealokasiKuchink(addressKuchink P);
 void InserFirstKuchink(listKuchink &L, addressKuchink K);
+void InsertLastKuchink(listKuchink &L, addressKuchink F);
+void InsertAfterKuchink(listKuchink &L, addressKuchink Prec, addressKuchink F);
 
 #endif //HOOMANMEONK_MEONK_H

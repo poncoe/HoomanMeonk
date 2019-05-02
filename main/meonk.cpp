@@ -61,6 +61,37 @@ void InsertFirstHooman(listHooman &L, addressHooman H) {
     }
 }
 
+// Membuat Address Tambah Data Grup (Insert Last)
+
+void InsertLastHooman(listHooman &L, addressHooman C) {
+    if(TampilHooman(L, info(C).data) == nullptr) {
+        if(last(L) == nullptr) {
+            first(L) = C;
+            last(L) = C;
+        } else {
+            prev(C) = last(L);
+            next(last(L)) = C;
+            last(L) = C;
+        }
+    }
+    else {
+        DealokasiHooman(C);
+    }
+}
+
+// Membuat Address Tambah Data Hooman (Insert After)
+
+void InsertAfterHooman(listHooman &L, addressHooman Prec, addressHooman C) {
+    if (Prec != nullptr)
+        InsertLastHooman(L, C);
+    else {
+        next (C) = next (Prec);
+        prev (C) = Prec;
+        prev (next (Prec)) = C;
+        next (Prec) = C;
+    }
+}
+
 // ========= KUCHINK =========
 
 
