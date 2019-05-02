@@ -33,6 +33,8 @@ struct listHooman {
 struct infotypeHooman {
     std::string data;
     int numberOfKuchinks;
+
+    // relasi kuchink didalam adt hooman
     listKuchink Kuchinks;
 };
 
@@ -47,6 +49,8 @@ struct Hooman {
 struct infotypeKuchink {
     std::string data;
     int numberofKuchink;
+
+    // relasi hooman didalam adt kuchink
     struct listHooman Kuchink;
 };
 

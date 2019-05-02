@@ -61,11 +61,11 @@ void InsertFirstHooman(listHooman &L, addressHooman H) {
     }
 }
 
-// Membuat Address Tambah Data Grup (Insert Last)
+// Membuat Address Tambah Data Hooman (Insert Last)
 
 void InsertLastHooman(listHooman &L, addressHooman C) {
-    if(TampilHooman(L, info(C).data) == nullptr) {
-        if(last(L) == nullptr) {
+    if(TampilHooman(L, info(C).data) == NULL) {
+        if(last(L) == NULL) {
             first(L) = C;
             last(L) = C;
         } else {
@@ -82,7 +82,7 @@ void InsertLastHooman(listHooman &L, addressHooman C) {
 // Membuat Address Tambah Data Hooman (Insert After)
 
 void InsertAfterHooman(listHooman &L, addressHooman Prec, addressHooman C) {
-    if (Prec != nullptr)
+    if (Prec != NULL)
         InsertLastHooman(L, C);
     else {
         next (C) = next (Prec);
