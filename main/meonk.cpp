@@ -36,7 +36,7 @@ void DealokasiHooman(addressHooman P) {
 
 // Membuat Address Nampilin Hooman
 
-addressHooman TampilHooman(listHooman L, std::string nama) {
+addressHooman getHooman(listHooman L, std::string nama) {
 
     addressHooman P = first (L);
 
@@ -45,7 +45,7 @@ addressHooman TampilHooman(listHooman L, std::string nama) {
             return P;
         P = next (P);
     }
-    return nullptr;
+    return NULL;
 }
 
 // Membuat Address Tambah Data Hooman (Insert First)
@@ -64,7 +64,7 @@ void InsertFirstHooman(listHooman &L, addressHooman H) {
 // Membuat Address Tambah Data Hooman (Insert Last)
 
 void InsertLastHooman(listHooman &L, addressHooman C) {
-    if(TampilHooman(L, info(C).data) == NULL) {
+    if(getHooman(L, info(C).data) == NULL) {
         if(last(L) == NULL) {
             first(L) = C;
             last(L) = C;
@@ -128,7 +128,7 @@ void CreateListKuchink(listKuchink &L) {
 
 // Nampilin Data Kucink
 
-addressKuchink TampilKuchink(listKuchink L, std::string nama) {
+addressKuchink getKuchink(listKuchink L, std::string nama) {
 
 
     addressKuchink P = first (L);
@@ -151,5 +151,36 @@ void InsertFirstKuchink(listKuchink &L, addressKuchink K) {
         next (K) = first (L);
         prev (first (L)) = K;
         first (L) = K;
+    }
+}
+
+// Membuat Address Input Data Kuchink (Insert Last)
+
+void InsertLastKuchink(listKuchink &L, addressKuchink F) {
+    if (getKuchink (L, info (F).data) == NULL) {
+        if (last (L) == NULL) {
+            first (L) = F;
+            last (L) = F;
+        } else {
+            prev (F) = last (L);
+            next (last (L)) = F;
+            last (L) = F;
+        }
+    }
+    else {
+        DealokasiKuchink(F);
+    }
+}
+
+// Membuat Address Input Data Kuchink (Insert After)
+
+void InsertAfterKuchink(listKuchink &L, addressKuchink Prec, addressKuchink F) {
+    if (Prec != NULL)
+        InsertLastKuchink(L, F);
+    else {
+        next (F) = next (Prec);
+        prev (F) = Prec;
+        prev (next (Prec)) = F;
+        next (Prec) = F;
     }
 }
