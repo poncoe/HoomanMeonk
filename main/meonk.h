@@ -70,6 +70,8 @@ void InserFirstHooman(listHooman &L, addressHooman H);
 void InsertLastHooman(listHooman &L, addressHooman C);
 void InsertAfterHooman(listHooman &L, addressHooman Prec, addressHooman C);
 addressHooman DeleteFirstHooman(listHooman &L);
+addressHooman DeleteLastHooman(listHooman &L);
+addressHooman DeleteHooman(listHooman &L, addressHooman C);
 
 // Kuchink
 

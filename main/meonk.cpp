@@ -112,6 +112,56 @@ addressHooman DeleteFirstHooman(listHooman &L) {
     return P;
 }
 
+// Membuat Address Hapus Hooman (Delete Last)
+
+addressHooman DeleteLastHooman(listHooman &L) {
+
+    addressHooman P = last (L);
+
+    if (P != NULL) {
+        if (P == first (L)) {
+            first (L) = NULL;
+            last (L)  = NULL;
+        }
+        else {
+            last (L) = prev(P);
+            prev (P) = NULL;
+            next (last (L)) = NULL;
+        }
+    }
+
+    return P;
+}
+
+// Membuat Address Hapus Hooman (Delete First & Delete Last)
+
+addressHooman DeleteHooman(listHooman &L, addressHooman C) {
+
+    addressHooman P = getHooman(L, info (C).data);
+
+    if (P != NULL) {
+        if (P == first (L)) {
+            P = DeleteFirstHooman(L);
+        } else if (P == last (L)) {
+            P = DeleteLastHooman(L);
+        } else {
+            prev (next (P)) = prev (P);
+            next (prev (P)) = next (P);
+            next (P) = NULL;
+            prev (P) = NULL;
+        }
+    }
+
+    listHooman Hooman = info (C).Hoomans;
+
+    while (first (Hooman) != NULL) {
+        DeleteLastHooman (Hooman);
+    }
+
+    return P;
+
+}
+
 // ========= KUCHINK =========
 
 
