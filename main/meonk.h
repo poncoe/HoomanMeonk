@@ -69,6 +69,7 @@ void DealokasiHooman(addressHooman P);
 void InserFirstHooman(listHooman &L, addressHooman H);
 void InsertLastHooman(listHooman &L, addressHooman C);
 void InsertAfterHooman(listHooman &L, addressHooman Prec, addressHooman C);
+addressHooman DeleteFirstHooman(listHooman &L)
 
 // Kuchink
 
@@ -79,5 +80,6 @@ void DealokasiKuchink(addressKuchink P);
 void InserFirstKuchink(listKuchink &L, addressKuchink K);
 void InsertLastKuchink(listKuchink &L, addressKuchink F);
 void InsertAfterKuchink(listKuchink &L, addressKuchink Prec, addressKuchink F);
+addressKuchink DeleteFirstKuchink(listKuchink &L)
 
 #endif //HOOMANMEONK_MEONK_H

@@ -92,12 +92,32 @@ void InsertAfterHooman(listHooman &L, addressHooman Prec, addressHooman C) {
     }
 }
 
+// Membuat Address Hapus Hooman (Delete First)
+
+addressHooman DeleteFirstHooman(listHooman &L) {
+
+    addressHooman P = first (L);
+
+    if (P != NULL) {
+        if (P == last (L)) {
+            first (L) = NULL;
+            last (L)  = NULL;
+        } else {
+            first (L) = next (first (L));
+            next (P) = NULL;
+            prev (first (L)) = NULL;
+        }
+    }
+
+    return P;
+}
+
 // ========= KUCHINK =========
 
 
 // Membuat Alokasi pada Kuchink
 
-addressKuchink AllocateKuchink(std::string data) {
+addressKuchink AlokasiKuchink(std::string data) {
 
     addressKuchink P;
     P = new Kuchink;
@@ -183,4 +203,24 @@ void InsertAfterKuchink(listKuchink &L, addressKuchink Prec, addressKuchink F) {
         prev (next (Prec)) = F;
         next (Prec) = F;
     }
+}
+
+// Membuat Address Hapus Kuchink (Delete First)
+
+addressKuchink DeleteFirstKuchink(listKuchink &L) {
+
+    addressKuchink P = first (L);
+
+    if (P != NULL) {
+        if (P == last (L)) {
+            last (L)  = NULL;
+            first (L) = NULL;
+        } else {
+            first (L) = next (first (L));
+            next (P) = NULL;
+            prev (first (L)) = NULL;
+        }
+    }
+
+    return P;
 }
