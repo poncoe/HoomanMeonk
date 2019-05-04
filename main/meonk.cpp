@@ -224,3 +224,53 @@ addressKuchink DeleteFirstKuchink(listKuchink &L) {
 
     return P;
 }
+
+// Membuat Address Hapus Kuchink (Delete Last)
+
+addressKuchink DeleteLastKuchink(listKuchink &L) {
+
+    addressKuchink P = last (L);
+
+    if (P != NULL) {
+        if (P == first (L)) {
+            last (L)  = NULL;
+            first (L) = NULL;
+        }
+        else {
+            last (L) = prev (P);
+            prev (P) = NULL;
+            next (last (L)) = NULL;
+        }
+    }
+
+    return P;
+
+}
+
+// Membuat Address Hapus Kuchink (Delete First & Delete Last)
+
+addressKuchink DeleteNetizen(listKuchink &L, addressKuchink F) {
+
+    addressKuchink P = getKuchink(L, info (F).data);
+
+    if (P != NULL) {
+        if (P == first (L))
+            P = DeleteFirstKuchink(L);
+        else if (P == last (L))
+            P = DeleteLastKuchink(L);
+        else {
+            prev (next (P)) = prev (P);
+            next (prev (P)) = next (P);
+            next (P) = NULL;
+            prev (P) = NULL;
+        }
+    }
+
+    listHooman Kuchink = info (F).Kuchink;
+
+    while (first (Kuchink) != NULL) {
+        DeleteLastHooman(Kuchink);
+    }
+
+    return P;
+}
