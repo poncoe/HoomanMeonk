@@ -69,6 +69,8 @@ addressHooman DeleteFirstHooman(listHooman &L);
 addressHooman DeleteLastHooman(listHooman &L);
 addressHooman DeleteHooman(listHooman &L, addressHooman C);
 void sortHooman(listHooman &L1);
+void viewHooman(listHooman L, std::string nama);
+void viewAllHooman(listHooman L);
 
 // Kuchink
 
@@ -81,7 +83,7 @@ void InsertLastKuchink(listKuchink &L, addressKuchink F);
 void InsertAfterKuchink(listKuchink &L, addressKuchink Prec, addressKuchink F);
 addressKuchink DeleteFirstKuchink(listKuchink &L);
 addressKuchink DeleteLastKuchink(listKuchink &L);
-addressKuchink DeleteNetizen(listKuchink &L, addressKuchink F);
+addressKuchink DeleteKuchink(listKuchink &L, addressKuchink F);
 void sortKuchink(listKuchink &L1);
 void viewAllKuchink(listKuchink L);
 void viewKuchink(listKuchink L, std::string nama);

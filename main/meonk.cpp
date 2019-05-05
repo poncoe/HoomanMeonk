@@ -359,7 +359,7 @@ addressKuchink DeleteLastKuchink(listKuchink &L) {
 
 // Membuat Address Hapus Kuchink (Delete First & Delete Last)
 
-addressKuchink DeleteNetizen(listKuchink &L, addressKuchink F) {
+addressKuchink DeleteKuchink(listKuchink &L, addressKuchink F) {
 
     addressKuchink P = getKuchink(L, info (F).data);
 
@@ -391,11 +391,11 @@ void sortKuchink(listKuchink &L1) {
     listKuchink L2;
     CreateListKuchink(L2);
 
-    while (first (L1) != nullptr) {
+    while (first (L1) != NULL) {
 
         addressKuchink P = DeleteLastKuchink(L1);
 
-        if (first (L2) == nullptr)
+        if (first (L2) == NULL)
             InsertFirstKuchink(L2, P);
         else if (info (P).numberofKuchink <= info (first (L2)).numberofKuchink)
             InsertFirstKuchink(L2, P);
