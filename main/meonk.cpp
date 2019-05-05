@@ -63,32 +63,32 @@ void InsertFirstHooman(listHooman &L, addressHooman H) {
 
 // Membuat Address Tambah Data Hooman (Insert Last)
 
-void InsertLastHooman(listHooman &L, addressHooman C) {
-    if(getHooman(L, info(C).data) == NULL) {
+void InsertLastHooman(listHooman &L, addressHooman H) {
+    if(getHooman(L, info(H).data) == NULL) {
         if(last(L) == NULL) {
-            first(L) = C;
-            last(L) = C;
+            first(L) = H;
+            last(L) = H;
         } else {
-            prev(C) = last(L);
-            next(last(L)) = C;
-            last(L) = C;
+            prev(H) = last(L);
+            next(last(L)) = H;
+            last(L) = H;
         }
     }
     else {
-        DealokasiHooman(C);
+        DealokasiHooman(H);
     }
 }
 
 // Membuat Address Tambah Data Hooman (Insert After)
 
-void InsertAfterHooman(listHooman &L, addressHooman Prec, addressHooman C) {
+void InsertAfterHooman(listHooman &L, addressHooman Prec, addressHooman H) {
     if (Prec != NULL)
-        InsertLastHooman(L, C);
+        InsertLastHooman(L, H);
     else {
-        next (C) = next (Prec);
-        prev (C) = Prec;
-        prev (next (Prec)) = C;
-        next (Prec) = C;
+        next (H) = next (Prec);
+        prev (H) = Prec;
+        prev (next (Prec)) = H;
+        next (Prec) = H;
     }
 }
 
@@ -135,9 +135,9 @@ addressHooman DeleteLastHooman(listHooman &L) {
 
 // Membuat Address Hapus Hooman (Delete First & Delete Last)
 
-addressHooman DeleteHooman(listHooman &L, addressHooman C) {
+addressHooman DeleteHooman(listHooman &L, addressHooman H) {
 
-    addressHooman P = getHooman(L, info (C).data);
+    addressHooman P = getHooman(L, info (H).data);
 
     if (P != NULL) {
         if (P == first (L)) {
@@ -152,7 +152,7 @@ addressHooman DeleteHooman(listHooman &L, addressHooman C) {
         }
     }
 
-    listKuchink Kuchink = info (C).Kuchinks;
+    listKuchink Kuchink = info (H).Kuchinks;
 
     while (first (Kuchink) != NULL) {
         DeleteLastKuchink (Kuchink);
@@ -286,32 +286,32 @@ void InsertFirstKuchink(listKuchink &L, addressKuchink K) {
 
 // Membuat Address Input Data Kuchink (Insert Last)
 
-void InsertLastKuchink(listKuchink &L, addressKuchink F) {
-    if (getKuchink (L, info (F).data) == NULL) {
+void InsertLastKuchink(listKuchink &L, addressKuchink K) {
+    if (getKuchink (L, info (K).data) == NULL) {
         if (last (L) == NULL) {
-            first (L) = F;
-            last (L) = F;
+            first (L) = K;
+            last (L) = K;
         } else {
-            prev (F) = last (L);
-            next (last (L)) = F;
-            last (L) = F;
+            prev (K) = last (L);
+            next (last (L)) = K;
+            last (L) = K;
         }
     }
     else {
-        DealokasiKuchink(F);
+        DealokasiKuchink(K);
     }
 }
 
 // Membuat Address Input Data Kuchink (Insert After)
 
-void InsertAfterKuchink(listKuchink &L, addressKuchink Prec, addressKuchink F) {
+void InsertAfterKuchink(listKuchink &L, addressKuchink Prec, addressKuchink K) {
     if (Prec != NULL)
-        InsertLastKuchink(L, F);
+        InsertLastKuchink(L, K);
     else {
-        next (F) = next (Prec);
-        prev (F) = Prec;
-        prev (next (Prec)) = F;
-        next (Prec) = F;
+        next (K) = next (Prec);
+        prev (K) = Prec;
+        prev (next (Prec)) = K;
+        next (Prec) = K;
     }
 }
 
@@ -359,9 +359,9 @@ addressKuchink DeleteLastKuchink(listKuchink &L) {
 
 // Membuat Address Hapus Kuchink (Delete First & Delete Last)
 
-addressKuchink DeleteKuchink(listKuchink &L, addressKuchink F) {
+addressKuchink DeleteKuchink(listKuchink &L, addressKuchink K) {
 
-    addressKuchink P = getKuchink(L, info (F).data);
+    addressKuchink P = getKuchink(L, info (K).data);
 
     if (P != NULL) {
         if (P == first (L))
@@ -376,7 +376,7 @@ addressKuchink DeleteKuchink(listKuchink &L, addressKuchink F) {
         }
     }
 
-    listHooman Kuchink = info (F).Kuchink;
+    listHooman Kuchink = info (K).Kuchink;
 
     while (first (Kuchink) != NULL) {
         DeleteLastHooman(Kuchink);

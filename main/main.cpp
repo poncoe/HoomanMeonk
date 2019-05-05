@@ -49,21 +49,21 @@ void Relasi(string Hooman, string Kuchink) {
 // Membuat Sebuah Relasi Tidak Terhubung
 
 void TidakRelasi(string Hooman, string Kuchink) {
-    addressHooman C = getHooman(L_H, Hooman);
-    addressKuchink F = getKuchink(L_K, Kuchink);
+    addressHooman H = getHooman(L_H, Hooman);
+    addressKuchink K = getKuchink(L_K, Kuchink);
 
     //Kalo Ada
-    if (C != NULL && F != NULL) {
-        if (getKuchink(info(C).Kuchinks, Kuchink) != NULL) {
-            DeleteKuchink(info(C).Kuchinks, getKuchink(info(C).Kuchinks, Kuchink));
-            info(C).numberOfKuchinks--;
+    if (H != NULL && K != NULL) {
+        if (getKuchink(info(H).Kuchinks, Kuchink) != NULL) {
+            DeleteKuchink(info(H).Kuchinks, getKuchink(info(H).Kuchinks, Kuchink));
+            info(H).numberOfKuchinks--;
         } else //Kalo Udah Ada
             cout << "data tidak ada";
 
         //Kalo Belom Ada
-        if (getHooman(info(F).Kuchink, Hooman) != NULL) {
-            DeleteHooman(info(F).Kuchink, getHooman(info(F).Kuchink, Hooman));
-            info(F).numberofKuchink--;
+        if (getHooman(info(K).Kuchink, Hooman) != NULL) {
+            DeleteHooman(info(K).Kuchink, getHooman(info(K).Kuchink, Hooman));
+            info(K).numberofKuchink--;
         } else
             cout << "data tidak ada";
     } else {
@@ -77,6 +77,6 @@ void TidakRelasi(string Hooman, string Kuchink) {
 int main() {
     std::cout << "" << std::endl;
     init();
-    
+
     return 0;
 }
