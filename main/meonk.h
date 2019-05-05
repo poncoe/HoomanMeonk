@@ -32,7 +32,7 @@ struct listHooman {
 
 struct infotypeHooman {
     std::string data;
-    int numberOfKuchink;
+    int numberOfKuchinks;
     listKuchink Kuchinks;
 };
 
@@ -68,6 +68,7 @@ void InsertAfterHooman(listHooman &L, addressHooman Prec, addressHooman C);
 addressHooman DeleteFirstHooman(listHooman &L);
 addressHooman DeleteLastHooman(listHooman &L);
 addressHooman DeleteHooman(listHooman &L, addressHooman C);
+void sortHooman(listHooman &L1);
 
 // Kuchink
 
@@ -81,5 +82,6 @@ void InsertAfterKuchink(listKuchink &L, addressKuchink Prec, addressKuchink F);
 addressKuchink DeleteFirstKuchink(listKuchink &L);
 addressKuchink DeleteLastKuchink(listKuchink &L);
 addressKuchink DeleteNetizen(listKuchink &L, addressKuchink F);
+void sortKuchink(listKuchink &L1);
 
 #endif //HOOMANMEONK_MEONK_H

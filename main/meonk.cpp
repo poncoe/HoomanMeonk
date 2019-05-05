@@ -13,7 +13,7 @@ addressHooman AlokasiHooman(std::string data) {
     CreateListKuchink(info (P).Kuchinks);
 
     info (P).data = data;
-    info (P).numberOfKuchink = 0;
+    info (P).numberOfKuchinks = 0;
     next (P) = NULL;
     prev (P) = NULL;
 
@@ -160,6 +160,35 @@ addressHooman DeleteHooman(listHooman &L, addressHooman C) {
 
     return P;
 
+}
+
+// Membuat Address Sort Data Hooman
+
+void sortHooman(listHooman &L1) {
+
+    listHooman L2;
+    CreateListHooman(L2);
+
+    while (first (L1) != nullptr) {
+
+        addressHooman P = DeleteLastHooman(L1);
+
+        if (first (L2) == nullptr)
+            InsertFirstHooman(L2, P);
+        else if (info (P).numberOfKuchinks <= info (first (L2)).numberOfKuchinks)
+            InsertFirstHooman(L2, P);
+        else if (info (P).numberOfKuchinks >= info (first (L2)).numberOfKuchinks)
+            InsertLastHooman(L2, P);
+        else {
+            addressHooman Q = first (L2);
+            while (info (next (Q)).numberOfKuchinks < info (P).numberOfKuchinks)
+                Q = next (Q);
+            InsertAfterHooman(L2, Q, P);
+        }
+
+    }
+
+    L1 = L2;
 }
 
 // ========= KUCHINK =========
@@ -323,4 +352,31 @@ addressKuchink DeleteNetizen(listKuchink &L, addressKuchink F) {
     }
 
     return P;
+}
+
+// Membuat Address Sort Data Kuchink
+
+void sortKuchink(listKuchink &L1) {
+    listKuchink L2;
+    CreateListKuchink(L2);
+
+    while (first (L1) != nullptr) {
+
+        addressKuchink P = DeleteLastKuchink(L1);
+
+        if (first (L2) == nullptr)
+            InsertFirstKuchink(L2, P);
+        else if (info (P).numberofKuchink <= info (first (L2)).numberofKuchink)
+            InsertFirstKuchink(L2, P);
+        else if (info (P).numberofKuchink >= info (first (L2)).numberofKuchink)
+            InsertLastKuchink(L2, P);
+        else {
+            addressKuchink Q = first (L2);
+            while (info (next (Q)).numberofKuchink < info (P).numberofKuchink)
+                Q = next (Q);
+            InsertAfterKuchink(L2, Q, P);
+        }
+    }
+
+    L1 = L2;
 }
