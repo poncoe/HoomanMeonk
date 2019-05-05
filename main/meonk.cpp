@@ -13,7 +13,7 @@ addressHooman AlokasiHooman(std::string data) {
     CreateListKuchink(info (P).Kuchinks);
 
     info (P).data = data;
-    info (P).numberOfKuchinks = 0;
+    info (P).numberOfKuchink = 0;
     next (P) = NULL;
     prev (P) = NULL;
 
@@ -152,10 +152,10 @@ addressHooman DeleteHooman(listHooman &L, addressHooman C) {
         }
     }
 
-    listHooman Hooman = info (C).Hoomans;
+    listKuchink Kuchink = info (C).Kuchinks;
 
-    while (first (Hooman) != NULL) {
-        DeleteLastHooman (Hooman);
+    while (first (Kuchink) != NULL) {
+        DeleteLastKuchink (Kuchink);
     }
 
     return P;
