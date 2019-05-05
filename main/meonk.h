@@ -83,5 +83,7 @@ addressKuchink DeleteFirstKuchink(listKuchink &L);
 addressKuchink DeleteLastKuchink(listKuchink &L);
 addressKuchink DeleteNetizen(listKuchink &L, addressKuchink F);
 void sortKuchink(listKuchink &L1);
+void viewAllKuchink(listKuchink L);
+void viewKuchink(listKuchink L, std::string nama);
 
 #endif //HOOMANMEONK_MEONK_H

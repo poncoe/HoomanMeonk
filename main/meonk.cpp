@@ -191,6 +191,37 @@ void sortHooman(listHooman &L1) {
     L1 = L2;
 }
 
+// Membuat Address Menampilkan Semua Data Hooman
+
+void viewAllHooman(listHooman L) {
+    if (first (L) != NULL && last (L) != NULL) {
+        addressHooman P = first(L);
+        while (P != NULL) {
+            std::cout << "  " << info(P).data << '\n';
+            P = next (P);
+        }
+    } else {
+        std::cout << "DATA KOSONG\n";
+    }
+
+}
+
+// Membuat Address Lihat Data Hooman
+
+void viewHooman(listHooman L, std::string nama) {
+    if (first (L) != NULL && last (L) != NULL) {
+        addressHooman P = getHooman(L, nama);
+        if (P == NULL)
+            std::cout << "Data Tidak Ada!";
+        else {
+            std::cout << "data Hooman       : " << info (P).data;
+            std::cout << "\nJumlah Kuchink : " << info (P).numberOfKuchinks;
+            std::cout << "\nNama Kuchink   : \n\n";
+            viewAllKuchink(info (P).Kuchinks);
+        }
+    }
+}
+
 // ========= KUCHINK =========
 
 
@@ -379,4 +410,36 @@ void sortKuchink(listKuchink &L1) {
     }
 
     L1 = L2;
+}
+
+// Menampilkan Semua Data Kuchink
+
+void viewAllKuchink(listKuchink L) {
+    if (first (L) != NULL && last (L) != NULL) {
+        addressKuchink P = first(L);
+        while (P != NULL) {
+            std::cout << info(P).data << '\n';
+            P = next (P);
+        }
+    } else {
+        std::cout << "DATA KOSONG\n";
+    }
+}
+
+// Menampilkan Data Kuchink
+
+void viewKuchink(listKuchink L, std::string nama) {
+    if (first (L) != NULL && last (L) != NULL) {
+        addressKuchink P = getKuchink(L, nama);
+        if (P == NULL)
+            std::cout << "Data Tidak Ada"; // Kalo Datanya kaga ada
+
+            // Kalo Datanya ada dia bakalan nampilin Kuchink
+        else {
+            std::cout << "Data    : " << info(P).data << '\n';
+            std::cout << "Jumlah Hooman : " << info(P).numberofKuchink;
+            std::cout << "\nHooman : \n\n";
+            viewAllHooman(info (P).Kuchink);
+        }
+    }
 }
